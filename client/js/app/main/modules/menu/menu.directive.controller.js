@@ -4,12 +4,12 @@ var angular = require('angular'),
 /*
  * @ngInject
  * */
-module.exports = function ($scope, $filter, nowValue, todayService) {
+module.exports = function ($scope, $filter, todayDate, todayService) {
     var vm = this;
     this.isVisible = false;
     this.tasksList = [];
     this.badges = [];
-    this.todayLong = $filter('date')(nowValue, "d MMM yyyy").toLowerCase();
+    this.todayDateLong = $filter('date')(todayDate, "d MMM yyyy").toLowerCase();
 
     $scope.$onRootScope(menuEvents.changeVisibility, function (event, isVisible) {
         if (angular.isUndefined(isVisible)) {
@@ -25,7 +25,7 @@ module.exports = function ($scope, $filter, nowValue, todayService) {
 
         var badges = [];
         angular.forEach(vm.tasksList, function(item){
-          if (!!item.projectColor && item.date === vm.todayLong){
+          if (!!item.projectColor && item.date === vm.todayDateLong){
             if (badges.length === 0) {badges.push(item.projectColor);}
             else {
               var status = false;
