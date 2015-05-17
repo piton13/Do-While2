@@ -1,12 +1,11 @@
 /**
  * @ngInject
  */
-module.exports = function (todayService, $filter, nowValue) {
+module.exports = function (todayService, $filter, todayDate) {
     var vm = this,
         oneDay = 86400000,
-        parsedDate = Date.parse(nowValue);
+        parsedDate = Date.parse(todayDate);
     this.tasks = [];
-    this.todayLong = $filter('date')(nowValue, "d MMM yyyy").toLowerCase();
     this.weekDays = [];
 
     for (var i=0; i<7; i++) {
@@ -16,12 +15,9 @@ module.exports = function (todayService, $filter, nowValue) {
       });
     }
 
+    this.todayDateLong = this.weekDays[0].dateFiltered;
+
     todayService.getTasks(function (res) {
         vm.tasks = res.data;
     });
-
-    console.log(oneDay);
-    console.log(parsedDate);
-    console.log(nowValue);
-
 };

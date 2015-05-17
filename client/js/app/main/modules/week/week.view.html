@@ -1,13 +1,11 @@
 <dw-header>
-    {{week.todayLong}}
+    {{week.todayDateLong}}
 </dw-header>
 
-<ul class="week">
-    <li class="week-day" ng-repeat="day in week.weekDays">
-        <span class="week-day__number">{{day.date | date: "dd"}}</span>
-        <span class="week-day__text">{{day.date | date: "EEE"}}</span>
-    </li>
-</ul>
+<dw-week-nav>
+  <dw-week-day ng-repeat="day in week.weekDays">
+  </dw-week-day>
+</dw-week-nav>
 
 <dw-task-list ng-repeat="day in week.weekDays">
     <li class="list__title"> {{day.date | date: "d EEE"}} </li>
