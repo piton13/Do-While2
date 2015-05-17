@@ -1,5 +1,5 @@
 <dw-header>
-    {{week.todayDateLong}}
+    {{week.todayDate | date: "d MMM yyyy"}}
 </dw-header>
 
 <dw-week-nav>
@@ -9,6 +9,6 @@
 
 <dw-task-list ng-repeat="day in week.weekDays">
     <li class="list__title"> {{day.date | date: "d EEE"}} </li>
-    <dw-week-task-item ng-repeat="task in week.tasks | filter: day.dateFiltered">
-    </dw-week-task-item>
+    <dw-today-task-item ng-repeat="task in week.tasks">
+    </dw-today-task-item>
 </dw-task-list>

@@ -5,7 +5,6 @@ var mainModuleDependencies = []
     .concat(require('./modules'));
 
 var mainModule = angular.module('mainModule', mainModuleDependencies)
-    .config(require('./main.config'))
-    .value('todayDate', new Date());
+    .config(require('./main.config'));
 
 module.exports = mainModule.name;
