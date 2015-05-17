@@ -14,6 +14,6 @@ module.exports = function ($stateParams, projectService) {
 
         projectService.getTasks(id, function (res) {
             vm.tasks = res.data.items;
-        })
+        });
     });
 };

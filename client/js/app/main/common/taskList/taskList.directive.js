@@ -7,5 +7,5 @@ module.exports = function (viewResolver) {
         replace: true,
         transclude: true,
         templateUrl: viewResolver.resolve('taskList.template.html', __dirname)
-    }
+    };
 };

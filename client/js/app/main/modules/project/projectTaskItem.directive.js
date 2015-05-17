@@ -8,5 +8,5 @@ module.exports = function (viewResolver) {
         replace: false,
         transclude: false,
         templateUrl: viewResolver.resolve('projectTaskItem.template.html', __dirname)
-    }
+    };
 };
