@@ -4,32 +4,27 @@
 module.exports = function (todayService) {
     var vm = this,
         oneDay = 86400000,
+        timeZone = 1000*60*60*3,
         todayDate = new Date(),
-        todayJSON = todayDate.toJSON().substr(0,10),
         parsedDate = Date.parse(todayDate);
     this.todayDate = todayDate;
-    this.tasks = [];
     this.weekDays = [];
 
     for (var i=0; i<7; i++) {
       vm.weekDays.push({
-        date:parsedDate+i*oneDay,
-        //dateFiltered: $filter('date')(parsedDate+i*oneDay, "d MMM yyyy").toLowerCase()
+        date: new Date(parsedDate+i*oneDay+timeZone).toJSON().substr(0,10),
+        tasks: []
       });
     }
 
-    //this.todayDateLong = this.weekDays[0].dateFiltered;
-
     todayService.getTasks(function (res) {
-        vm.tasks = res.data;
+
+        for (var i=0; i<7; i++) {
+          for (var j=0; j<res.data.length; j++){
+            if (res.data[j].date.substr(0,10) === vm.weekDays[i].date) {
+              vm.weekDays[i].tasks.push(res.data[j]);
+            }
+          }
+        }
     });
 };
-
-/*
-todayService.getTasks(function (res) {
-    for (var i=0; i<res.data.length; i++){
-      if (res.data[i].date.substr(0,10) === todayJSON) {
-        vm.tasks.push(res.data[i]);
-      }
-    }
-});*/

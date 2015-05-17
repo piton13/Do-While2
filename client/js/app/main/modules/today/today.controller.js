@@ -3,8 +3,10 @@
  */
 module.exports = function (todayService) {
     var vm = this,
+        timeZone = 1000*60*60*3,
         todayDate = new Date(),
-        todayJSON = todayDate.toJSON().substr(0,10);
+        parsedDate = Date.parse(todayDate),
+        todayJSON = new Date(parsedDate+timeZone).toJSON().substr(0,10);
     this.todayDate = todayDate;
     this.tasks = [];
 
