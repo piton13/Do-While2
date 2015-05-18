@@ -116,8 +116,9 @@
     }
 
     @include media-desktop() {
-      @extend %i-task-item-col;
       display: table-cell;
+      vertical-align: middle;
+      border-bottom: 1px solid $gray-scale-2;
       width: $task-item__button-width *2;
       min-width: $task-item__button-width *2;
       border-bottom: 0;
