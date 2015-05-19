@@ -5,34 +5,20 @@ module.exports = function (todayService) {
     var vm = this;
     this.colors = [];
 
-    todayService.getTasks(function (response) {
-        var tasks = response.data,
-            nowDate = new Date("2015-05-18"),
-            todayTasks = [],
-            colors = [];
+    todayService.getTodayTasks()
+        .success(function (tasks) {
+            vm.colors = tasks.reduce(function (colors, task) {
+                function hasColor(color) {
+                    for (var i = 0; i < colors.length; i++)
+                        if (colors[i] === color)
+                            return true;
+                    return false;
+                }
 
-        function isDateEquals(a, b) {
-            return a.getFullYear() === b.getFullYear() &&
-                a.getMonth() === b.getMonth() &&
-                a.getDay() === b.getDay();
-        }
+                if (!hasColor(task.projectColor))
+                    colors.push(task.projectColor);
 
-        for (var i = 0; i < tasks.length; i++)
-            if (isDateEquals(new Date(tasks[i].date), nowDate))
-                todayTasks.push(tasks[i]);
-
-        angular.forEach(todayTasks, function (item) {
-            function color(color) {
-                for (var i = 0; i < colors.length; i++)
-                    if (colors[i] === color)
-                        return true;
-                return false;
-            }
-
-            if (!color(item.projectColor))
-                colors.push(item.projectColor);
+                return colors;
+            }, vm.colors);
         });
-
-        vm.colors = colors;
-    });
 };
