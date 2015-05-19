@@ -15,8 +15,8 @@ module.exports = function (todayService) {
                     return false;
                 }
 
-                if (!hasColor(task.projectColor))
-                    colors.push(task.projectColor);
+                if (!hasColor(task.project.color))
+                    colors.push(task.project.color);
 
                 return colors;
             }, vm.colors);
