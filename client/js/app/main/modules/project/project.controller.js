@@ -7,13 +7,14 @@ module.exports = function ($stateParams, projectService) {
 
     var id = $stateParams.projectId;
 
-    projectService.getById(id, function (res) {
-        var project = res.data;
-        vm.color = project.color;
-        vm.name = project.name;
+    projectService.getById(id)
+        .success(function (project) {
+            vm.color = project.color;
+            vm.name = project.name;
 
-        projectService.getTasks(id, function (res) {
-            vm.tasks = res.data.items;
+        projectService.getTasks(id)
+            .success(function (response) {
+                vm.tasks = response.items;
+            });
         });
-    });
 };
