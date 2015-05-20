@@ -14,7 +14,9 @@
         </span>
     </div>
 
-    <div class="task-item__notification" ng-click="taskCtrl.toggleSelection()">
+    <div class="task-item__notification"
+        ng-class="{'task-item__notification_hovered' : !!taskCtrl.isSelected}"
+        ng-click="taskCtrl.toggleSelection()">
         <span class="task-item__label task-item__label_notification" ng-show="!!task.notificationTime">
             {{task.notificationTime}}
         </span>

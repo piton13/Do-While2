@@ -70,6 +70,14 @@ $notification-width: 78px;
     width: $notification-width;
     min-width: $notification-width;
     text-align: left;
+
+    &_hovered {
+      display: none;
+
+      @include media-desktop() {
+        display: table-cell;
+      }
+    }
   }
 
   //endregion
