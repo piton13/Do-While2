@@ -3,7 +3,7 @@
  */
 module.exports = function ($stateProvider) {
     $stateProvider.state('main.today', {
-        url: '/today',
+        url: '',
         controller: require('./today.controller'),
         controllerAs: 'today',
         templateUrl: {

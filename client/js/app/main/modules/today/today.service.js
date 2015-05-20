@@ -18,20 +18,18 @@ module.exports = function ($http, apiConfig) {
     };
 
     this.getWeekTasks = function () {
+        var weekTasks = [],
+            dates = [],
+            oneDay = 1000*60*60*24,
+            todayDate = new Date();
+
         return this.getAllTasks({
             transformResponse: appendTransform($http.defaults.transformResponse, function (tasks) {
-              var weekTasks = [],
-                  dates = [],
-                  oneDay = 1000*60*60*24,
-                  todayDate = new Date();
-
-                for (var i=0; i<7; i++) {
-                  dates[i] = new Date(todayDate.valueOf()+i*oneDay);
-                }
 
                 tasks = mapDate(tasks);
 
                 for (var i=0; i<7; i++) {
+                  dates[i] = new Date(todayDate.valueOf()+i*oneDay);
                   weekTasks.push({
                     date: dates[i],
                     tasks: filterByDate(tasks, dates[i])
