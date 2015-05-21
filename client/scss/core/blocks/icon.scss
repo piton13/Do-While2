@@ -3,6 +3,6 @@
   vertical-align: middle;
 
   &_inverted {
-    -webkit-filter: contrast(10);
+    filter: contrast(10);
   }
 }
