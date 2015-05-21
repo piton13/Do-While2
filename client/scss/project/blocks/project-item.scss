@@ -36,6 +36,7 @@
       width: $count-badge-width;
       line-height: $count-badge-width;
       text-align: center;
+      overflow: hidden;
     }
   }
 }

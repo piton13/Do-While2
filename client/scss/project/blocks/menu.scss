@@ -22,7 +22,10 @@
     .badge-group {
       display: inline-block;
       float: right;
-      padding-right: $menu-icon-right-padding + 8px;
+      margin-right: $menu-icon-right-padding + 8px;
+
+      @extend %text-in-one-line;
+      max-width: $menu-width/2 - 15px;
     }
   }
 
