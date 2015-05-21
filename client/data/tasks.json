@@ -87,7 +87,7 @@
         "color": "green"
     },
     "notificationTime": "18:00",
-    "accessTime": "",
+    "accessTime": "19:43:34",
     "date": "2015-05-21T16:40:23.806Z"},
   { "id":233,
     "name": "Buy food in Wallmart",
@@ -113,8 +113,8 @@
         "name": "education",
         "color": "green"
     },
-    "notificationTime": "",
-    "accessTime": "",
+    "notificationTime": "21:00",
+    "accessTime": "21:43:34",
     "date": "2015-05-21T16:40:23.806Z"},
   { "id":236,
     "name": "Buy food in Wallmart",

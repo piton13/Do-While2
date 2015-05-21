@@ -14,7 +14,6 @@ $notification-width: 78px;
   float: right;
   width: $task-item__button-width;
   height: 100%;
-  padding: 0;
   border-left: 1px solid $gray-scale-0;
   text-transform: uppercase;
   &:before {
@@ -51,7 +50,6 @@ $notification-width: 78px;
   &__info {
     @extend %i-task-item-col;
     text-align: left;
-    padding-top: 2px;
   }
 
   &__name {
@@ -127,26 +125,15 @@ $notification-width: 78px;
     @include media-desktop() {
       display: table-cell;
       vertical-align: middle;
-      border-bottom: 1px solid $gray-scale-2;
       width: $task-item__button-width *2;
       min-width: $task-item__button-width *2;
-      border-bottom: 0;
-      padding-bottom: 1px;
+      height: 100%;
+      border-top: 1px solid $gray-scale-0;
 
       &_active {
         position: static;
         background-color: transparent;
       }
-    }
-  }
-
-  @include media-desktop() {
-    &:first-child &__buttons {
-      padding-top: 1px;
-    }
-
-    &:last-child &__buttons {
-      padding-bottom: 0;
     }
   }
 
