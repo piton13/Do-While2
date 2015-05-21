@@ -1,6 +1,7 @@
 var gulp = require('gulp'),
     rename = require('gulp-rename'),
     templateCache = require('gulp-angular-templatecache'),
+    uniqueFilesCheck = require('../plugins/gulp-uniqueFilesCheck'),
     browserSync = require('browser-sync'),
     fileInclude = require('gulp-file-include'),
     del = require('del'),
@@ -36,6 +37,12 @@ gulp.task('clean:html:markup', function (onDone) {
 
 gulp.task('build:html:templatecache.js', function () {
     return gulp.src(config.patterns.src.html.views)
+        .pipe(uniqueFilesCheck({
+            logTemplate: "Template ${name} is already defined in ${path}",
+            fileMap: function (file) {
+                return path.basename(file.relative);
+            }
+        }))
         .pipe(rename({
             dirname: ''
         }))
