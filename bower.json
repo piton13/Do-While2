@@ -26,9 +26,5 @@
     "normalize.css": "~3.0.3",
     "html5shiv": "~3.7.2",
     "respond": "~1.4.2"
-  },
-  "devDependencies": {
-    "angular": "1.2.x",
-    "ui-router": "~0.2.14"
   }
 }
