@@ -1,7 +1,7 @@
 /**
  * @ngInject
  */
-module.exports = function (viewResolver) {
+module.exports = function ($templateCache) {
     return {
         restrict: 'E',
         required: '^dwTaskList',
@@ -12,6 +12,6 @@ module.exports = function (viewResolver) {
         },
         controller: require('./taskItem.directive.controller'),
         controllerAs: 'taskCtrl',
-        templateUrl: viewResolver.resolve('taskItem.template.html', __dirname)
+        template: $templateCache.get('taskItem.template.html')
     };
 };

@@ -1,13 +1,13 @@
 /**
  * @ngInject
  */
-module.exports = function (viewResolver) {
+module.exports = function ($templateCache) {
     return {
         restrict: 'E',
         require: '^dwMenu',
         replace: true,
         transclude: false,
         scope: {},
-        templateUrl: viewResolver.resolve('actionList.template.html', __dirname)
+        template: $templateCache.get('actionList.template.html')
     };
 };
