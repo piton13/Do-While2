@@ -1,11 +1,15 @@
 var gulp = require('gulp'),
+    rename = require('gulp-rename'),
+    templateCache = require('gulp-angular-templatecache'),
+    uniqueFilesCheck = require('../plugins/gulp-uniqueFilesCheck'),
     browserSync = require('browser-sync'),
     fileInclude = require('gulp-file-include'),
     del = require('del'),
+    path = require('path'),
     config = require('../config'),
     errorDebug = require('../lib/error-debug');
 
-gulp.task('build:html', ['build:html:pages', 'build:html:views', 'build:html:markup']);
+gulp.task('build:html', ['build:html:pages', 'build:html:markup']);
 
 
 gulp.task('build:html:pages', ['clean:html:pages'], function () {
@@ -13,7 +17,7 @@ gulp.task('build:html:pages', ['clean:html:pages'], function () {
         .pipe(fileInclude())
         .on('error', errorDebug.errorHandler())
         .pipe(gulp.dest(config.paths.dist.html.pages))
-        .pipe(browserSync.reload({stream:true}));
+        .pipe(browserSync.reload({stream: true}));
 });
 
 gulp.task('clean:html:pages', function (onDone) {
@@ -31,12 +35,22 @@ gulp.task('clean:html:markup', function (onDone) {
     del(config.patterns.dist.html.markup, errorDebug(onDone));
 });
 
-gulp.task('build:html:views', ['clean:html:views'], function () {
+gulp.task('build:html:templatecache.js', function () {
     return gulp.src(config.patterns.src.html.views)
-        .pipe(gulp.dest(config.paths.dist.html.views))
-        .pipe(browserSync.reload({stream:true}));
-});
-
-gulp.task('clean:html:views', function (onDone) {
-    del(config.patterns.dist.html.views, errorDebug(onDone));
+        .pipe(uniqueFilesCheck({
+            logTemplate: "Template ${name} is already defined in ${path}",
+            fileMap: function (file) {
+                return path.basename(file.relative);
+            }
+        }))
+        .pipe(rename({
+            dirname: ''
+        }))
+        .pipe(templateCache({
+            filename: 'templateCache.run.js',
+            templateHeader: '/*@ngInject*/ module.exports = function($templateCache) {',
+            templateFooter: '};'
+        }))
+        .pipe(gulp.dest(config.paths.src.js.templateCache))
+        .pipe(browserSync.reload({stream: true}));
 });

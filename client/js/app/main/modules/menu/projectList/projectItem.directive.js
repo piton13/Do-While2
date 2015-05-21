@@ -1,7 +1,7 @@
 /**
  * @ngInject
  */
-module.exports = function (viewResolver) {
+module.exports = function ($templateCache) {
     return {
         restrict: 'E',
         required: '^dwProjectList',
@@ -10,6 +10,6 @@ module.exports = function (viewResolver) {
         scope: {
             project: '='
         },
-        templateUrl: viewResolver.resolve('projectItem.template.html', __dirname)
+        template: $templateCache.get('projectItem.template.html')
     };
 };

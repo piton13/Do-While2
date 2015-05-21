@@ -6,9 +6,6 @@ module.exports = function ($stateProvider) {
         abstract: true,
         controller: require('./main.controller'),
         controllerAs: 'page',
-        templateUrl: {
-            root: __dirname,
-            name: 'main.view.html'
-        }
+        templateKey: 'main.view.html'
     });
 };

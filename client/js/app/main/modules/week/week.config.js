@@ -6,9 +6,6 @@ module.exports = function ($stateProvider) {
         url: '/week',
         controller: require('./week.controller'),
         controllerAs: 'week',
-        templateUrl: {
-            root: __dirname,
-            name: 'week.view.html'
-        }
+        templateKey: 'week.view.html'
     });
 };

@@ -1,11 +1,11 @@
 /**
  * @ngInject
  */
-module.exports = function (viewResolver) {
+module.exports = function ($templateCache) {
     return {
         restrict: 'E',
         replace: true,
         transclude: true,
-        templateUrl: viewResolver.resolve('weekNav.template.html', __dirname)
+        template: $templateCache.get('weekNav.template.html')
     };
 };
