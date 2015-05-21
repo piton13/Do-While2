@@ -13,7 +13,8 @@ var paths = new Layout({
             core: 'core'
         },
         js: {
-            main: 'app.js'
+            main: 'app.js',
+            templateCache: 'common/templateCache'
         },
         img: 'img',
         fonts: 'fonts',
