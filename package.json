@@ -75,5 +75,9 @@
       "browserify-ngannotate"
     ]
   },
-  "browserify-shim": {}
+  "browserify-shim": {
+    "google-api": {
+      "exports": "global:gapi"
+    }
+  }
 }
