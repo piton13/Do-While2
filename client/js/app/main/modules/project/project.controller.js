@@ -12,9 +12,9 @@ module.exports = function ($stateParams, projectService) {
             vm.color = project.color;
             vm.name = project.name;
 
-            projectService.getTasks(id)
-                .success(function (response) {
-                    vm.tasks = response.items;
-                });
+        projectService.getTasks(id)
+            .success(function (response) {
+                vm.tasks = response.items;
+            });
         });
 };

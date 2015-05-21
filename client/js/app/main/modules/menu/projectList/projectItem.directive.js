@@ -11,5 +11,5 @@ module.exports = function (viewResolver) {
             project: '='
         },
         templateUrl: viewResolver.resolve('projectItem.template.html', __dirname)
-    }
+    };
 };

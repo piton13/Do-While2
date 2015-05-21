@@ -13,5 +13,5 @@ module.exports = function (viewResolver) {
         controller: require('./taskItem.directive.controller'),
         controllerAs: 'taskCtrl',
         templateUrl: viewResolver.resolve('taskItem.template.html', __dirname)
-    }
+    };
 };

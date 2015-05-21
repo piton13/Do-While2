@@ -6,6 +6,6 @@ module.exports = function (viewResolver) {
         restrict: 'E',
         replace: true,
         transclude: true,
-        templateUrl: viewResolver.resolve('taskList.template.html', __dirname)
+        templateUrl: viewResolver.resolve('weekNav.template.html', __dirname)
     };
 };

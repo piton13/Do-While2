@@ -8,10 +8,34 @@ module.exports = function ($http, apiConfig) {
     };
 
     this.getTodayTasks = function () {
+        var date = new Date(); // "2015-05-17" as example can be used
         return this.getAllTasks({
             transformResponse: appendTransform($http.defaults.transformResponse, function (tasks) {
                 tasks = mapDate(tasks);
-                return filterToday(tasks);
+                return filterByDate(tasks, date);
+            })
+        });
+    };
+
+    this.getWeekTasks = function () {
+        var weekTasks = [],
+            dates = [],
+            oneDay = 1000*60*60*24,
+            todayDate = new Date();
+
+        return this.getAllTasks({
+            transformResponse: appendTransform($http.defaults.transformResponse, function (tasks) {
+
+                tasks = mapDate(tasks);
+
+                for (var i=0; i<7; i++) {
+                  dates[i] = new Date(todayDate.valueOf()+i*oneDay);
+                  weekTasks.push({
+                    date: dates[i],
+                    tasks: filterByDate(tasks, dates[i])
+                  });
+                }
+                return weekTasks;
             })
         });
     };
@@ -28,10 +52,9 @@ module.exports = function ($http, apiConfig) {
         });
     }
 
-    function filterToday(tasks) {
-        var now = new Date(); // "2015-05-17" as example can be used
+    function filterByDate(tasks, date) {
         return tasks.reduce(function (todayTasks, task) {
-            if (isDateEquals(task.date, now))
+            if (isDateEquals(task.date, date))
                 todayTasks.push(task);
             return todayTasks;
         }, []);
