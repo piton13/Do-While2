@@ -10,7 +10,7 @@ $header-text-color: $gray-scale-4;
 .header {
   @include background-colors();
   display: table;
-  table-layout:fixed;
+  table-layout: fixed;
   z-index: 10;
   position: absolute;
   top: 0;
@@ -59,6 +59,18 @@ $header-text-color: $gray-scale-4;
       @extend .icon;
       text-overflow: clip;
       @include retina-sprite($icon-create-group);
+    }
+  }
+
+  &_colored {
+    .header {
+      &__menu-button {
+        @include before-icon-center($icon_hamburger_white_group, $header-size, $header-size);
+      }
+
+      &__add-task-button {
+        @include before-icon-center($icon_plus_white_group, $header-size, $header-size);
+      }
     }
   }
 }
