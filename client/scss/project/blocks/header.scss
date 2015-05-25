@@ -10,7 +10,7 @@ $header-text-color: $gray-scale-4;
 .header {
   @include background-colors();
   display: table;
-  table-layout:fixed;
+  table-layout: fixed;
   z-index: 10;
   position: absolute;
   top: 0;
@@ -23,7 +23,8 @@ $header-text-color: $gray-scale-4;
   &__menu-button {
     @extend %i-header__button;
     display: table-cell;
-    @include media-tablet() {
+    @include before-icon-center($icon_hamburger_group, $header-size, $header-size);
+    @include media-tablet {
       display: none;
     }
   }
@@ -31,6 +32,7 @@ $header-text-color: $gray-scale-4;
   &__add-task-button {
     @extend %i-header__button;
     display: table-cell;
+    @include before-icon-center($icon_plus_group, $header-size, $header-size);
   }
 
   &__title {
@@ -57,6 +59,18 @@ $header-text-color: $gray-scale-4;
       @extend .icon;
       text-overflow: clip;
       @include retina-sprite($icon-create-group);
+    }
+  }
+
+  &_colored {
+    .header {
+      &__menu-button {
+        @include before-icon-center($icon_hamburger_white_group, $header-size, $header-size);
+      }
+
+      &__add-task-button {
+        @include before-icon-center($icon_plus_white_group, $header-size, $header-size);
+      }
     }
   }
 }
