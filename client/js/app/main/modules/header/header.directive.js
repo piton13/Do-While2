@@ -7,8 +7,7 @@ module.exports = function ($templateCache) {
         replace: true,
         transclude: true,
         scope: {
-            color: '=',
-            menuClick: '&'
+            color: '='
         },
         controller: require('./header.directive.controller'),
         controllerAs: 'header',
