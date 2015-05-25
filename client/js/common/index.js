@@ -1,5 +1,6 @@
 module.exports = [
     require('./api'),
     require('./core'),
-    require('./templateCache')
+    require('./templateCache'),
+    require('./ui')
 ];
