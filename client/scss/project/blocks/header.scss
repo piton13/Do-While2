@@ -23,7 +23,8 @@ $header-text-color: $gray-scale-4;
   &__menu-button {
     @extend %i-header__button;
     display: table-cell;
-    @include media-tablet() {
+    @include before-icon-center($icon_hamburger_group, $header-size, $header-size);
+    @include media-tablet {
       display: none;
     }
   }
@@ -31,6 +32,7 @@ $header-text-color: $gray-scale-4;
   &__add-task-button {
     @extend %i-header__button;
     display: table-cell;
+    @include before-icon-center($icon_plus_group, $header-size, $header-size);
   }
 
   &__title {
