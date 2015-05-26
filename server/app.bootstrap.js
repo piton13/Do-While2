@@ -1,5 +1,5 @@
 var express = require('express'),
-    bootstrapMiddleware = require('./bootstrap/middleware'),
+    bootstrapMiddleware = require('./middleware'),
     bootstrapRoutes = require('./routes'),
     bootstrapError = require('./bootstrap/error');
 
