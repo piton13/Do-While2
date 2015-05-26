@@ -32,6 +32,7 @@ module.exports = function ($http, apiConfig) {
                   dates[i] = new Date(todayDate.valueOf()+i*oneDay);
                   weekTasks.push({
                     date: dates[i],
+                    number: i,
                     tasks: filterByDate(tasks, dates[i])
                   });
                 }

@@ -7,7 +7,7 @@
   </dw-week-day>
 </dw-week-nav>
 
-<dw-task-list ng-repeat="day in week.weekDays">
+<dw-task-list ng-repeat="day in week.weekDays | myFilter: week.showedDays">
     <li class="list__title"> {{day.date | date: "d EEE"}} </li>
     <dw-today-task-item ng-repeat="task in day.tasks" task="task">
     </dw-today-task-item>

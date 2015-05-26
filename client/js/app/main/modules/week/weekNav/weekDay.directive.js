@@ -7,6 +7,7 @@ module.exports = function ($templateCache) {
         required: '^dwWeekNav',
         replace: true,
         transclude: true,
+        controllerAs: 'week',
         template: $templateCache.get('weekDay.template.html')
     };
 };

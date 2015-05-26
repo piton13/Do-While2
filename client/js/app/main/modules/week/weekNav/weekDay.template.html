@@ -1,4 +1,5 @@
-<li class="week-day">
+<li ng-class="{ 'week-day_checked' : !!week.isSelected }"
+    ng-click="week.chooseTheDay(day.number)" class="week-day">
     <span class="week-day__number">{{day.date | date: "dd"}}</span>
     <span class="week-day__text">{{day.date | date: "EEE"}}</span>
 </li>
