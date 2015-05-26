@@ -1,12 +1,12 @@
-<div class="page">
+<div class="page page-main">
     @@include('../../blocks/menu/menu.html', {"mods" : "opened"})
 
-    <div class="page__main">
+    <div class="page-main__content">
         @@include('../../blocks/header.html', {"color" : "blue", "title" : "work", "title_icon": true})
 
         @@include('./task-list.html')
 
-        <div class="page__main-overlap">
+        <div class="page-main__content-overlay">
         </div>
     </div>
 </div>
