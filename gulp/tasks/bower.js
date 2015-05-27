@@ -2,7 +2,7 @@ var gulp = require('gulp'),
     del = require('del'),
     bowerFiles = require('main-bower-files'),
     bowerNormalize = require('gulp-bower-normalize'),
-    config = require('../config'),
+    config = require('../../layout.config'),
     errorDebug = require('../lib/error-debug');
 
 

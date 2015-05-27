@@ -7,7 +7,7 @@ var gulp = require('gulp'),
     sourceStream = require('vinyl-source-stream2'),
     gulpIf = require('gulp-if'),
     del = require('del'),
-    config = require('../config'),
+    config = require('../../layout.config'),
     errorDebug = require('../lib/error-debug');
 
 var bundleOptions = {
@@ -49,7 +49,7 @@ gulp.task('clean:js', function (onDone) {
 });
 
 gulp.task('hint:js', function () {
-    return gulp.src(config.patterns.src.js)
+    return gulp.src(config.patterns.src.js.all)
         .pipe(jshint())
         .pipe(jshint.reporter('jshint-stylish'));
 });

@@ -1,6 +1,6 @@
 var gulp = require('gulp'),
     del = require('del'),
-    config = require('../config'),
+    config = require('../../layout.config'),
     errorDebug = require('../lib/error-debug');
 
 gulp.task('copy:fonts', ['clean:fonts'], function () {

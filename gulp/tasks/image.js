@@ -2,7 +2,7 @@ var gulp = require('gulp'),
     spritesmith = require('gulp.spritesmith'),
     del = require('del'),
     path = require('path'),
-    config = require('../config'),
+    config = require('../../layout.config'),
     errorDebug = require('../lib/error-debug');
 
 gulp.task('build:img', ['copy:img:pictures', 'build:img:icons']);

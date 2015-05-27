@@ -3,7 +3,7 @@ var gulp = require('gulp'),
     del = require('del'),
     sass = require('gulp-sass'),
     browserSync = require('browser-sync'),
-    config = require('../config'),
+    config = require('../../layout.config'),
     errorDebug = require('../lib/error-debug');
 
 function buildScss() {
