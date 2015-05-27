@@ -49,7 +49,7 @@ gulp.task('clean:js', function (onDone) {
 });
 
 gulp.task('hint:js', function () {
-    return gulp.src(config.patterns.src.js)
+    return gulp.src(config.patterns.src.js.all)
         .pipe(jshint())
         .pipe(jshint.reporter('jshint-stylish'));
 });
