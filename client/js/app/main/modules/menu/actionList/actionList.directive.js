@@ -1,13 +1,13 @@
 /**
  * @ngInject
  */
-module.exports = function ($templateCache) {
+module.exports = function () {
     return {
         restrict: 'E',
         require: '^dwMenu',
         replace: true,
         transclude: false,
         scope: {},
-        template: $templateCache.get('actionList.template.html')
+        templateUrl: 'actionList.template.html'
     };
 };

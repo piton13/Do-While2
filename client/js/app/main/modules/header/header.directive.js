@@ -1,7 +1,7 @@
 /**
  * @ngInject
  * */
-module.exports = function ($templateCache) {
+module.exports = function () {
     return {
         restrict: 'E',
         replace: true,
@@ -11,6 +11,6 @@ module.exports = function ($templateCache) {
         },
         controller: require('./header.directive.controller'),
         controllerAs: 'header',
-        template: $templateCache.get('header.template.html')
+        templateUrl: 'header.template.html'
     };
 };

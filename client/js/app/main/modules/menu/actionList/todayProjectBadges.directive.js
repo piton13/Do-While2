@@ -1,7 +1,7 @@
 /**
  * @ngInject
  */
-module.exports = function ($templateCache) {
+module.exports = function () {
     return {
         restrict: 'E',
         replace: true,
@@ -9,6 +9,6 @@ module.exports = function ($templateCache) {
         scope: {},
         controller: require('./todayProjectBadges.directive.controller.js'),
         controllerAs: 'badges',
-        template: $templateCache.get('todayProjectBadges.template.html')
+        templateUrl: 'todayProjectBadges.template.html'
     };
 };

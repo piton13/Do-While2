@@ -6,6 +6,6 @@ module.exports = function ($stateProvider) {
         url: '',
         controller: require('./today.controller'),
         controllerAs: 'today',
-        templateKey: 'today.view.html'
+        templateUrl: 'today.view.html'
     });
 };

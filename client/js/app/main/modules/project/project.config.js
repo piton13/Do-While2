@@ -6,6 +6,6 @@ module.exports = function ($stateProvider) {
         url: '/projects/{projectId:[0-9a-fA-F]{1,8}}',
         controller: require('./project.controller'),
         controllerAs: 'project',
-        templateKey: 'project.view.html'
+        templateUrl: 'project.view.html'
     });
 };

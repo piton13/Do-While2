@@ -1,13 +1,13 @@
 /**
  * @ngInject
  */
-module.exports = function ($templateCache) {
+module.exports = function () {
     return {
         restrict: 'E',
         replace: true,
         transclude: false,
         controller: require('./menu.directive.controller'),
         controllerAs: 'menu',
-        template: $templateCache.get('menu.template.html')
+        templateUrl: 'menu.template.html'
     };
 };

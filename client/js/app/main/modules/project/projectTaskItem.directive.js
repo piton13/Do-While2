@@ -1,7 +1,7 @@
 /**
  * @ngInject
  */
-module.exports = function ($templateCache) {
+module.exports = function () {
     return {
         restrict: 'E',
         required: '^dwTaskList',
@@ -10,6 +10,6 @@ module.exports = function ($templateCache) {
         scope: {
             task: '='
         },
-        template: $templateCache.get('projectTaskItem.template.html')
+        templateUrl: 'projectTaskItem.template.html'
     };
 };

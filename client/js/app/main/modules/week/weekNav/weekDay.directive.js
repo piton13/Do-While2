@@ -1,12 +1,12 @@
 /**
  * @ngInject
  */
-module.exports = function ($templateCache) {
+module.exports = function () {
     return {
         restrict: 'E',
         required: '^dwWeekNav',
         replace: true,
         transclude: true,
-        template: $templateCache.get('weekDay.template.html')
+        templateUrl: 'weekDay.template.html'
     };
 };
