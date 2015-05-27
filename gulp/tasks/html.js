@@ -6,7 +6,7 @@ var gulp = require('gulp'),
     fileInclude = require('gulp-file-include'),
     del = require('del'),
     path = require('path'),
-    config = require('../config'),
+    config = require('../../layout.config'),
     errorDebug = require('../lib/error-debug');
 
 gulp.task('build:html', ['build:html:pages', 'build:html:markup']);

@@ -7,7 +7,7 @@ var gulp = require('gulp'),
     sourceStream = require('vinyl-source-stream2'),
     gulpIf = require('gulp-if'),
     del = require('del'),
-    config = require('../config'),
+    config = require('../../layout.config'),
     errorDebug = require('../lib/error-debug');
 
 var bundleOptions = {

@@ -1,5 +1,5 @@
-var glob = require('./lib/glob'),
-    Layout = require('./lib/layout');
+var glob = require('./gulp/lib/glob'),
+    Layout = require('./gulp/lib/layout');
 
 var paths = new Layout({
     server: {
