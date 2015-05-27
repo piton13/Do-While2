@@ -65,7 +65,7 @@
     "presetup": "bower install",
     "setup": "npm install",
     "postsetup": "gulp build",
-    "pretest": "npm run setup",
+    "pretest": "npm install & bower install",
     "test": "karma start --singleRun --no-autoWatch",
     "tdd": "karma start --no-singleRun --autoWatch"
   },
