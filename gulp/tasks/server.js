@@ -1,7 +1,7 @@
 var gulp = require('gulp'),
     nodemon = require('gulp-nodemon'),
     browserSync = require('browser-sync'),
-    config = require('../config'),
+    config = require('../../layout.config'),
     serverConfig = require('../../server/config.json');
 
 gulp.task('server', ['watch'], function () {

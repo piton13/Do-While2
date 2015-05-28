@@ -1,7 +1,7 @@
 /**
  * @ngInject
  */
-module.exports = function ($templateCache) {
+module.exports = function () {
     return {
         restrict: 'E',
         required: '^dwWeekNav',
@@ -13,6 +13,6 @@ module.exports = function ($templateCache) {
         },
         // controller: require('./weekDay.directive.controller'),
         controllerAs: 'week',
-        template: $templateCache.get('weekDay.template.html')
+        templateUrl: 'weekDay.template.html'
     };
 };

@@ -1,11 +1,11 @@
 /**
  * @ngInject
  */
-module.exports = function ($templateCache) {
+module.exports = function () {
     return {
         restrict: 'E',
         replace: true,
         transclude: true,
-        template: $templateCache.get('projectList.template.html')
+        templateUrl: 'projectList.template.html'
     };
 };

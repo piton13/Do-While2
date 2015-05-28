@@ -1,13 +1,13 @@
-<div class="page" ng-cloak>
-    <dw-menu class="page__menu">
+<div class="page page-main" ng-cloak>
+    <dw-menu class="page-main__menu">
     </dw-menu>
 
-    <div class="page__main">
+    <div class="page-main__content">
 
         <ui-view>
         </ui-view>
 
-        <div class="page__main-overlap" ng-click="page.toggleMenuVisibility()">
+        <div class="page-main__content-overlay" ng-click="page.toggleMenuVisibility()">
         </div>
     </div>
 </div>

@@ -26,6 +26,32 @@ __BrowserSync__ settings avaliable on [localhost:8002](http://localhost:8002).
 
 + __default__ (__build__) task compiles all sources into _./server/public_ folder.
 
+# Test
+
+We using [karma](http://karma-runner.github.io/0.12/index.html) as test runner. 
+And [jasmine](http://jasmine.github.io/2.3/introduction.html) as testing framework.
+
+## Requirements
+Need global install karma and karma-cli (command line script to run karma).
+```
+    npm i karma karma-cli -g
+```
+
+## Scripts
+
+**Run tests**:
+
+```
+    npm test
+```
+
+**Run tests in tdd mode**: source and test files will be watching for changes and tests will be automatically rerun.
+
+```
+    npm run tdd
+```
+
+
 #JSHint
 ### Coding rules:
 + "__curly__" - This option requires you to always put curly braces around blocks in loops and conditionals.

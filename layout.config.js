@@ -62,7 +62,10 @@ var patterns = new Layout({
             pageComponents: glob.deepAllOfType('html').build('html'),
             views: glob.deepAllOfType('html').build('js')
         },
-        js: glob.deepAllOfType('js').build('js'),
+        js: {
+            all: glob.deepAllOfType('js'),
+            tests: glob.deepAllOfType('test.js')
+        },
         scss: glob.deepAllOfType('scss').build('scss'),
         img: {
             icons: {
