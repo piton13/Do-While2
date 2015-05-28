@@ -10,4 +10,4 @@ angular.module('doWhileApp',
         require('./common'),
         require('./app/index')
     )
-);
+).run(require('./app.run'));
