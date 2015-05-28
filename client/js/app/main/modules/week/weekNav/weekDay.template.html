@@ -1,5 +1,5 @@
 <li ng-class="{ 'week-day_checked' : showedDays === day.number }"
     ng-click="showedDays = day.number" class="week-day">
-    <span class="week-day__number">{{day.date | date: "dd"}}</span>
-    <span class="week-day__text">{{day.date | date: "EEE"}}</span>
+    <span class="week-day__number">{{day.date | date: "d"}}</span>
+    <span class="week-day__text">{{day.date | todayDateWord}}</span>
 </li>
