@@ -3,7 +3,7 @@
 </dw-header>
 
 <dw-week-nav>
-  <dw-week-day ng-repeat="day in week.weekDays">
+  <dw-week-day ng-repeat="day in week.weekDays" week="day" showed="week.showedDays">
   </dw-week-day>
 </dw-week-nav>
 
