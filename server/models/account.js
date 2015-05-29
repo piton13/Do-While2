@@ -6,10 +6,10 @@ var AccountEmailSchema = db.mongoose.Schema({
 });
 
 var AccountSchema = db.mongoose.Schema({
-    id: String,
-    _user: {type: db.mongoose.Schema.ObjectId, ref: 'Users'},
+    providerId: String,
     provider: String,
+    _user: {type: db.mongoose.Schema.ObjectId, ref: 'users'},
     emails: [AccountEmailSchema]
 });
 
-module.exports = db.connection.model('Accounts', AccountSchema);
+module.exports = db.connection.model('accounts', AccountSchema);

@@ -10,6 +10,6 @@ module.exports = function (app) {
     app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({extended: false}));
     app.use(session({secret: 'keyboard cat'}));
-    require('./passport')(app);
     app.use(methodOverride());
+    require('./passport')(app);
 };
