@@ -1,4 +1,5 @@
 module.exports = [
     require('./todo'),
-    require('./main')
+    require('./main'),
+    require('./newTask')
 ];

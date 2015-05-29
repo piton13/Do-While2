@@ -35,6 +35,16 @@ $header-text-color: $gray-scale-4;
     @include before-icon-center($icon_plus_group, $header-size, $header-size);
   }
 
+  &__close-new-task {
+    @extend %i-header__button;
+    display: table-cell;
+    @include before-icon-center($icon_plus_group, $header-size, $header-size);
+
+    &::before {
+      transform: rotate(45deg);
+    }
+  }
+
   &__title {
     display: table-cell;
     padding: 0;

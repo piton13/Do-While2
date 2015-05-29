@@ -6,5 +6,5 @@ module.exports = [
     // main view-modules :
     require('./today'),
     require('./week'),
-    require('./project')
+    require('./project'),
 ];

@@ -1,0 +1,13 @@
+.new-task {
+  display: table;
+  position: relative;
+  width: 100%;
+  min-width: $mobile-min-width;
+  max-width: $desktop-page-max-width/2;
+  margin: 0 auto;
+  height: 100vh;
+
+  &-content {
+    padding: 0 16px;
+  }
+}
