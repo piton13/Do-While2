@@ -1,4 +1,13 @@
 .page-main {
+  display: table;
+  position: relative;
+  width: 100%;
+  min-width: $mobile-min-width;
+  max-width: $desktop-page-max-width;
+  margin: 0 auto;
+  height: 100vh;
+
+  
   &__menu {
     overflow-y: auto;
     height: 100%;
