@@ -4,5 +4,9 @@ var express = require('express'),
     authRoutes = requireDir('./');
 
 router.use('/google', authRoutes.google);
+router.get('/logout', function (req, res) {
+    req.logout();
+    res.redirect('/');
+});
 
 module.exports = router;
