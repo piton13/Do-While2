@@ -3,14 +3,13 @@ var GoogleOAuth2Strategy = require('passport-google-oauth').OAuth2Strategy,
     userAccountService = require('../../services/userAccountService');
 
 function onUserAuthorized(accessToken, refreshToken, account, done) {
-
     userAccountService.getUserByAccount(account)
         .then(function (user) {
             done(null, user);
         })
         .fail(function (err) {
             if (err.message === 'no account')
-                return userAccountService.createUserByAccount(account)
+                return userAccountService.createUserByAccount(account, accessToken)
                     .then(function (user) {
                         done(null, user);
                     });

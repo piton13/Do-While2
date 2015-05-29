@@ -7,7 +7,8 @@ var UserSchema = Schema({
     accounts: [{type: Schema.ObjectId, ref: 'accounts'}],
     name: String,
     email: String,
-    photo: String
+    photo: String,
+    access_token: String
 });
 
 module.exports = db.connection.model(USER_MODEL_NAME, UserSchema);

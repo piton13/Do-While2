@@ -1,7 +1,13 @@
 var express = require('express'),
-    apiRouter = express.Router();
+    apiRouter = express.Router(),
+    resourceApiRouter = express.Router(),
+    passport = require('passport');
+
+resourceApiRouter.use(passport.authenticate('bearer', {session: false}));
+resourceApiRouter.use('/projects', require('./projects'));
+resourceApiRouter.use('/users', require('./users'));
 
 apiRouter.use('/auth', require('./auth'));
-apiRouter.use('/projects', require('./projects'));
+apiRouter.use(resourceApiRouter);
 
 module.exports = apiRouter;
