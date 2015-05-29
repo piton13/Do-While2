@@ -11,7 +11,6 @@ module.exports = function () {
           day: '=week',
           showedDays: '=showed'
         },
-        // controller: require('./weekDay.directive.controller'),
         controllerAs: 'week',
         templateUrl: 'weekDay.template.html'
     };
