@@ -1,6 +1,5 @@
 .new-task {
-  display: table;
-  /* table-layout: fixed; */
+  display: block;
   position: relative;
   width: 100%;
   min-width: $mobile-min-width;
@@ -8,6 +7,12 @@
   margin: 0 auto;
   height: 100vh;
   background: #fff;
+
+  &-wrapper {
+    vertical-align: top;
+    height: 100%;
+    overflow-y: auto;
+  }
 
   &-content {
     padding: 0 16px;

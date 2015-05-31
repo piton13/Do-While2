@@ -84,8 +84,6 @@ $header-text-color: $gray-scale-4;
 
   &__title {
     display: block;
-    //min-width: $mobile-min-width - 2 * $header-size;
-    //width: 100%;
     padding: 0 $header-size;
     @include font-semi-bold(14px);
     line-height: $header-size;

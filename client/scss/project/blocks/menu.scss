@@ -1,7 +1,9 @@
 .menu {
-  display: block;
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
   width: $menu-width;
-  min-width: $menu-width;
   border-right: 1px solid $gray-scale-4;
 
   &__settings {

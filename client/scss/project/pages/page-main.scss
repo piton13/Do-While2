@@ -1,6 +1,5 @@
 .page-main {
-  display: table;
-  /* table-layout: fixed; */
+  display: block;
   position: relative;
   width: 100%;
   min-width: $mobile-min-width;
@@ -14,15 +13,23 @@
   }
 
   &__content {
+    display: block;
     position: relative;
-    display: table-cell;
-    vertical-align: top;
-    width: 100%;
+    min-width: $mobile-min-width;
     height: 100%;
+    margin-left: 0;
     overflow-x: hidden;
     overflow-y: auto;
+    vertical-align: top;
 
-    min-width: $mobile-min-width;
+
+    @include media-tablet {
+      margin-left: $menu-width + 1px;
+    }
+
+    &_opened {
+      margin-left: $menu-width + 1px;
+    }
 
     &-overlay {
       position: absolute;
