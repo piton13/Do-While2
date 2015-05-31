@@ -1,61 +1,97 @@
 $header-text-color: $gray-scale-4;
 
-%i-header__button {
-  vertical-align: middle;
-  padding: 0;
-  width: $header-size;
-  cursor: pointer;
-}
-
 .header {
   @include background-colors();
-  display: table;
-  table-layout: fixed;
-  z-index: 10;
-  position: absolute;
-  top: 0;
-  left: 0;
+  display: block;
+  z-index: 9;
+  position: relative;
   width: 100%;
   height: $header-size;
-  color: $gray-scale-4;
   background-color: $gray-scale-1;
+  color: $gray-scale-4;
 
-  &__menu-button {
-    @extend %i-header__button;
-    display: table-cell;
-    @include before-icon-center($icon_hamburger_group, $header-size, $header-size);
+  &-button_left,
+  &-button_right {
+    position: absolute;
+    top: 0;
+    z-index: 10;
+    width: $header-size;
+    height: $header-size;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $hover-color;
+    }
+  }
+
+  &-button_left {
+    left: 0;
+
     @include media-tablet {
       display: none;
     }
   }
 
-  &__add-task-button {
-    @extend %i-header__button;
-    display: table-cell;
-    @include before-icon-center($icon_plus_group, $header-size, $header-size);
+  &-button_right {
+    right: 0;
+  }
+
+  &__menu-button,
+  &__add-task-button,
+  &__close-new-task {
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 20px;
+      left: 12px;
+      width: 20px;
+      height: 4px;
+      background: $gray-scale-4;
+    }
+  }
+
+  &__add-task-button,
+  &__close-new-task {
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 12px;
+      left: 20px;
+      width: 4px;
+      height: 20px;
+      background: $gray-scale-4;
+    }
+  }
+
+  &__menu-button {
+
+    &::before {
+      box-shadow: 0 8px 0 0 $gray-scale-4,
+                  0 -8px 0 0 $gray-scale-4;
+    }
   }
 
   &__close-new-task {
-    @extend %i-header__button;
-    display: table-cell;
-    @include before-icon-center($icon_plus_group, $header-size, $header-size);
 
-    &::before {
+    &::before,
+    &::after {
       transform: rotate(45deg);
     }
   }
 
   &__title {
-    display: table-cell;
-    padding: 0;
+    display: block;
+    //min-width: $mobile-min-width - 2 * $header-size;
+    //width: 100%;
+    padding: 0 $header-size;
     @include font-semi-bold(14px);
+    line-height: $header-size;
     text-transform: uppercase;
-
-    @extend %text-in-one-line;
-
     text-align: center;
-    vertical-align: middle;
-    min-width: $mobile-min-width - 2 * $header-size;
+    @extend %text-in-one-line;
   }
 
   &__project {
@@ -75,11 +111,20 @@ $header-text-color: $gray-scale-4;
   &_colored {
     .header {
       &__menu-button {
-        @include before-icon-center($icon_hamburger_white_group, $header-size, $header-size);
+
+        &::before {
+          background: white;
+          box-shadow: 0 8px 0 0 white,
+                      0 -8px 0 0 white;
+        }
       }
 
       &__add-task-button {
-        @include before-icon-center($icon_plus_white_group, $header-size, $header-size);
+
+        &::before,
+        &::after {
+          background: white;
+        }
       }
     }
   }

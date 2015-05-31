@@ -1,5 +1,6 @@
 .page-main {
   display: table;
+  /* table-layout: fixed; */
   position: relative;
   width: 100%;
   min-width: $mobile-min-width;
@@ -21,7 +22,6 @@
     overflow-x: hidden;
     overflow-y: auto;
 
-    padding-top: $header-size;
     min-width: $mobile-min-width;
 
     &-overlay {
