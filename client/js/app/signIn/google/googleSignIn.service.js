@@ -1,9 +1,8 @@
 var gapi = require('google-api');
 
 /*@ngInject*/
-module.exports = function ($http, $q, credentials) {
-    var auth2,
-        _onAuthorized;
+module.exports = function ($http, $q, credentials, googleAppId) {
+    var _authClient, _onAuthorized;
 
     return {
         authorize: authorize
@@ -11,16 +10,26 @@ module.exports = function ($http, $q, credentials) {
 
     function authorize(onAuthorized) {
         _onAuthorized = onAuthorized;
-        gapi.load('auth2', function () {
-            auth2 = gapi.auth2.init({
-                client_id: '743517210814-njm0f30m5nl30iprhjn4i4vkuri307vu.apps.googleusercontent.com',
-                immediate: false
-            });
-
-            auth2.grantOfflineAccess({
+        onOAuth2(function (authClient) {
+            console.log('start grant offline access');
+            authClient.grantOfflineAccess({
                 redirect_uri: 'postmessage'
             }).then(signIn);
         });
+    }
+
+    function onOAuth2(callback) {
+        if (_authClient) {
+            callback(_authClient);
+        } else {
+            gapi.load('auth2', function () {
+                _authClient = gapi.auth2.init({
+                    client_id: googleAppId,
+                    immediate: false
+                });
+                callback(_authClient);
+            });
+        }
     }
 
     function signIn(authResult) {
