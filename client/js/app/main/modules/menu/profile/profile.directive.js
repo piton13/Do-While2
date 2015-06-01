@@ -4,6 +4,8 @@ module.exports = function () {
         replace: true,
         transclude: false,
         scope: {},
+        controller: require('./profile.directive.controller'),
+        controllerAs: 'profile',
         templateUrl: 'profile.template.html'
     };
 };

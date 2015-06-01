@@ -1,13 +1,12 @@
 <div class="profile">
     <div class="profile__avatar">
-        <img class="profile__avatar-image"
-             src="//lh5.googleusercontent.com/-LniwMu-KEgc/AAAAAAAAAAI/AAAAAAAAAKE/ywPZ29sv5vE/photo.jpg" alt="hello"/>
+        <img class="profile__avatar-image" ng-src="{{profile.photo}}" alt="profile.photo"/>
     </div>
 
     <div class="profile__title">
-        Борис Игнатьев
+        {{profile.name}}
     </div>
 
-    <div role="button" class="button profile__logout">
+    <div role="button" class="button profile__logout" ng-click="profile.signOut()">
     </div>
 </div>
