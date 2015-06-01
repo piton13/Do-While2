@@ -1,9 +1,13 @@
 var angular = require('angular');
 
-var appDependencies = [
+var vendorDependencies = [
     require('angular-ui-router')
-]
-    .concat(require('./common'))
-    .concat(require('./app/index'));
+];
 
-angular.module('doWhileApp', appDependencies);
+angular.module('doWhileApp',
+    [].concat(
+        vendorDependencies,
+        require('./common'),
+        require('./app/index')
+    )
+).run(require('./app.run'));

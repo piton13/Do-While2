@@ -1,0 +1,51 @@
+%sign-in-button {
+  $height: 40px;
+  display: block;
+  margin-bottom: 5px;
+  width: 100%;
+  height: $height;
+  line-height: $height;
+  text-decoration: none;
+}
+
+%center-row {
+  width: $mobile-min-width;
+  margin: 0 auto;
+}
+
+.page-sign-in {
+
+  &__caption {
+    @extend %center-row;
+
+    margin-top: $header-size;
+    margin-bottom: $header-size * 3;
+
+    color: $gray-scale-5;
+    text-align: center;
+    @include font-bold(38px);
+  }
+
+  &__actions {
+    @extend %center-row;
+  }
+
+  &__actions-caption {
+    @include font-regular(24px);
+    margin-bottom: 10px;
+
+    text-align: center;
+    color: $gray-scale-5;
+
+  }
+
+  &__google {
+    @extend %sign-in-button;
+    @include colorize-all($gray-scale-0, $color-red);
+  }
+
+  &__facebook {
+    @extend %sign-in-button;
+    @include colorize-all($gray-scale-0, $color-blue);
+  }
+}

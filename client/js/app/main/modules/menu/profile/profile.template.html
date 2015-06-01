@@ -1,0 +1,12 @@
+<div class="profile">
+    <div class="profile__avatar">
+        <img class="profile__avatar-image" ng-src="{{profile.photo}}" alt="profile.photo"/>
+    </div>
+
+    <div class="profile__title">
+        {{profile.name}}
+    </div>
+
+    <div role="button" class="button profile__logout" ng-click="profile.signOut()">
+    </div>
+</div>
