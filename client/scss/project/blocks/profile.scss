@@ -1,0 +1,52 @@
+$avatar-size: 80px;
+$avatar-border: 4px;
+
+$profile-height: 110px;
+$profile-gap: 7px;
+$sign-out-height: 28px;
+
+.profile {
+  display: block;
+  box-sizing: border-box;
+  padding: $profile-gap 0 ($profile-gap * 2) 0;
+  text-align: center;
+  color: $gray-scale-5;
+
+  &__avatar {
+    display: inline-block;
+    box-sizing: border-box;
+    height: $avatar-size;
+    width: $avatar-size;
+    background: $gray-scale-0;
+    border-radius: 50%;
+    border: $avatar-border solid $gray-scale-0;
+
+    &-image {
+      display: inline-block;
+      border-radius: 50%;
+      height: $avatar-size - 2 * $avatar-border;
+      width: $avatar-size - 2 * $avatar-border;
+      vertical-align: middle;
+    }
+  }
+
+  &__title {
+    display: block;
+    margin-top: $profile-gap;
+    @include font-semi-bold(15px);
+  }
+
+  &__logout {
+    margin-top: $profile-gap;
+    height: $sign-out-height;
+    line-height: $sign-out-height;
+    width: 100%;
+    @include font-regular(12px);
+    text-transform: lowercase;
+    background: $gray-scale-2;
+    color: $gray-scale-0;
+    &:before {
+      content: 'sign out';
+    }
+  }
+}
