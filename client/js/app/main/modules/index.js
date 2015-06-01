@@ -4,6 +4,8 @@ module.exports = [
     require('./header'),
 
     // main view-modules :
+    require('./createTask'),
+
     require('./today'),
     require('./week'),
     require('./project'),
