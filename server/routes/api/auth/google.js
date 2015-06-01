@@ -1,5 +1,7 @@
 var express = require('express'),
     router = express.Router(),
+    GoogleSignInService = require('../../../services/googleSignInService'),
+    signInService = new GoogleSignInService(),
     passport = require('passport');
 
 router.get('/',
@@ -23,5 +25,14 @@ router.get('/callback',
         });
     }
 );
+
+router.post('/', function (req, res, next) {
+    var code = req.body.code;
+    signInService.signIn(code)
+        .then(function (token) {
+            res.json(token);
+        })
+        .fail(next);
+});
 
 module.exports = router;
