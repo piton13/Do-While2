@@ -19,16 +19,13 @@
   }
 
   &__new-task {
+    @extend %control;
     display: table-cell;
-    width: 30%;
-    height: 30px;
     margin-left: 5%;
-    background: $color-blue;
     border: 0;
+    width: 30%;
     outline: none;
-    border-radius: 4px;
-    @include font-regular(15px);
-    color: white;
+    @include colorize-all($gray-scale-0, $color-blue);
 
     &:first-child {
       margin-left: 0;
