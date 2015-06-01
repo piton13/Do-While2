@@ -1,0 +1,9 @@
+$control-height: 32px;
+%control {
+  box-sizing: border-box;
+  padding: 0 5px;
+  height: $control-height;
+  line-height: $control-height;
+  border-radius: 0 2px 2px 2px;
+  @include font-regular(15px);
+}
