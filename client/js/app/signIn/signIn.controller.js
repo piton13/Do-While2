@@ -9,6 +9,6 @@ module.exports = function (googleSignInService, $state) {
     };
 
     vm.facebook = function () {
-        //todo
+        $state.go('todo');
     };
 };
