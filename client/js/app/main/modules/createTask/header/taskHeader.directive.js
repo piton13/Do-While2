@@ -3,7 +3,7 @@ module.exports = function () {
     return {
         restrict: 'E',
         replace: true,
-        transclude: false,
+        transclude: true,
         scope: {},
         controller: require('../../header/header.directive.controller'),
         controllerAs: 'header',

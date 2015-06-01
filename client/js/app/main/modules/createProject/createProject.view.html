@@ -1,8 +1,22 @@
-<div ng-controller="createCtrl">
-    <form name="createProject" ng-submit="addNewProject()">
-        <label>Name:<input type="text" name="projName" ng-model="name"/></label><br/>
-        <label>Color:<input type="text" name="color" ng-model="color"/></label><br/>
-        <button type="submit">Send</button>
-    </form>
-</div>
+<dw-task-header>add new project
+</dw-task-header>
+
+<form class="new-task" ng-controller="createCtrl" name="createProject" ng-submit="addNewProject()">
+
+    <div class="text-box">
+        <label class="text-box__label" for="projectName">project name</label>
+        <input class="text-box__control" id="projectName" type="text" name="projectName" ng-model="name"/>
+    </div>
+
+    <div class="text-box">
+        <label class="text-box__label" for="projectColor">color</label>
+        <input class="text-box__control" id="projectColor" type="text" name="projectColor" ng-model="color">
+    </div>
+
+    <div class="button-container">
+      <button class="button__new-task" type="reset">Cancel</button>
+      <button class="button__new-task" type="submit">OK</button>
+    </div>
+
+</form>
 
