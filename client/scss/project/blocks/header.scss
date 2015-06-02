@@ -10,8 +10,7 @@ $header-text-color: $gray-scale-4;
   background-color: $gray-scale-1;
   color: $gray-scale-4;
 
-  &-button_left,
-  &-button_right {
+  &-button {
     position: absolute;
     top: 0;
     z-index: 10;
@@ -19,30 +18,32 @@ $header-text-color: $gray-scale-4;
     height: $header-size;
     cursor: pointer;
 
+    &_left {
+      left: 0;
+
+      @include media-tablet {
+        display: none;
+      }
+    }
+
+    &_right {
+      right: 0;
+    }
+
     &:hover {
       background-color: $hover-color;
     }
   }
 
-  &-button_left {
-    left: 0;
-
-    @include media-tablet {
-      display: none;
-    }
-  }
-
-  &-button_right {
-    right: 0;
-  }
-
   &__menu-button,
   &__add-task-button,
   &__close-new-task {
+    display: block;
     position: relative;
 
     &::before {
       content: '';
+      display: block;
       position: absolute;
       top: 20px;
       left: 12px;
@@ -57,6 +58,7 @@ $header-text-color: $gray-scale-4;
 
     &::after {
       content: '';
+      display: block;
       position: absolute;
       top: 12px;
       left: 20px;

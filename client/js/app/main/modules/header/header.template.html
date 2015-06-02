@@ -1,12 +1,12 @@
 <header class="header" dw-color="color" ng-class="{header_colored: !!color}">
-    <div role="button" ng-click="header.toggleMenuVisibility()" class="header-button_left">
-      <div class="header__menu-button"></div>
-    </div>
+    <a role="button" ng-click="header.toggleMenuVisibility()" class="header-button header-button_left">
+      <span class="header__menu-button"></span>
+    </a>
 
     <div class="header__title" ng-transclude>
     </div>
 
-    <div ui-sref="main.createTask" class="header-button_right">
-      <div class="header__add-task-button"></div>
-    </div>
+    <a ui-sref="main.createTask" class="header-button header-button_right">
+      <span class="header__add-task-button"></span>
+    </a>
 </header>
