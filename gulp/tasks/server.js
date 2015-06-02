@@ -13,14 +13,6 @@ gulp.task('server', ['watch'], function () {
     }).on('restart', function (files) {
         console.log(files);
     });
-
-    browserSync.init({
-        proxy: "localhost:" + serverConfig.port,
-        port: +serverConfig.port + 1,
-        ui: {
-            port: +serverConfig.port + 2
-        }
-    });
 });
 
 gulp.task('server:static', ['watch'], function () {
