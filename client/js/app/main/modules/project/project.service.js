@@ -12,7 +12,7 @@ module.exports = function ($http, apiConfig) {
     };
 
     this.create = function (project) {
-        $http.post('/api/projects', { name: project.name, color: project.color });
+        $http.post('/api/projects', { name: project.name.toLowerCase(), color: project.color.toLowerCase() });
     };
 
     this.getAllProjects = function () {

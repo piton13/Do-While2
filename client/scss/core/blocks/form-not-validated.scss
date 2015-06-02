@@ -1,0 +1,50 @@
+.has-error {
+  color: red;
+
+  & label {
+    color: red;
+
+    &::after {
+      content: '*';
+      position: relative;
+      top: -2px;
+    }
+  }
+
+  & input[type="text"],
+  & select {
+    border-color: red;
+    outline-color: red;
+    border-radius: 4px;
+  }
+}
+.has-warning {
+  color: orange;
+
+  & label {
+    color: orange;
+  }
+
+  & select {
+    border-color: orange;
+    outline-color: orange;
+  }
+}
+.disabled {
+  background: #999;
+  cursor: default;
+}
+.error-message {
+  margin-top: 3px;
+  @include font-bold(8px);
+  text-transform: uppercase;
+  text-align: left;
+  color: red;
+}
+.warning-message {
+  margin-top: 3px;
+  @include font-bold(8px);
+  text-transform: uppercase;
+  text-align: left;
+  color: orange;
+}
