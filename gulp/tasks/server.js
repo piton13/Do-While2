@@ -4,7 +4,7 @@ var gulp = require('gulp'),
     config = require('../../layout.config'),
     serverConfig = require('../../server/config.json');
 
-gulp.task('server', ['watch'], function () {
+gulp.task('server', ['watch', 'db'], function () {
     nodemon({
         watch: [config.paths.server._root],
         script: config.paths.bin.server,

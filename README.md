@@ -16,8 +16,8 @@ npm run setup
 ```
 
 # Gulp basic tasks
-+ __server__ - runs _build_ task, then starts __express__ server on [localhost:8000](http://localhost:8000)
-using [nodemon](http://nodemon.io/) and watch for changes. (for take effect need to manual reload page *F5*).
++ __server__ - runs _watch_ task (_build_ is in _watch_ dependency), starts __mongod__ with _db_ task, then starts __express__ server on [localhost:8000](http://localhost:8000)
+using [nodemon](http://nodemon.io/) and watch for server changes. (for take effect need to manual reload page *F5*).
 
 + __server:static__ - light-weight version with __BrowserSync__ **static**(!!) server [localhost:8001](http://localhost:8001).
 
@@ -76,7 +76,7 @@ Old html markup now placed on the next route: __http://localhost:3000/markup/__
                                        __"for your choise"__
                                        
 ##Run
-To run database just type:
+To run database server just type:
 ```
-    npm run dbstart
+    npm run db
 ```

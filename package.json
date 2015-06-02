@@ -67,7 +67,7 @@
     "watchify": "^3.2.0"
   },
   "scripts": {
-    "dbstart": "mongod --dbpath ./.data",
+    "db": "gulp db",
     "start": "gulp server",
     "presetup": "bower install",
     "setup": "npm install",
