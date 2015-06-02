@@ -39,3 +39,5 @@ out/
 # mpeltonen/sbt-idea plugin
 .idea_modules/
 
+.data/*
+!.data/.gitkeep
