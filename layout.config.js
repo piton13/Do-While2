@@ -2,8 +2,10 @@ var glob = require('./lib/glob'),
     Layout = require('./lib/layout');
 
 var paths = new Layout({
+    bin: {
+        server: 'www'
+    },
     server: {
-        app: 'bin/www',
         public: 'public'
     },
     src: {

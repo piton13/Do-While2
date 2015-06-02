@@ -7,7 +7,7 @@ var gulp = require('gulp'),
 gulp.task('server', ['watch'], function () {
     nodemon({
         watch: [config.paths.server._root],
-        script: config.paths.server.app,
+        script: config.paths.bin.server,
         ignore: [config.paths.dist._root],
         ext: 'js'
     }).on('restart', function (files) {
