@@ -1,13 +1,23 @@
 /**
  * @ngInject
  */
-module.exports = function (todayService) {
-    var vm = this;
-    vm.showedDays = 0;
-    vm.todayDate = new Date();
-    vm.weekDays = [];
+module.exports = function (todayService, $location, $anchorScroll, $filter) {
+	var vm = this,
+		dateFilter = $filter('date');
 
-    todayService.getWeekTasks().success(function (tasks) {
-        vm.weekDays = tasks;
-    });
+	todayService.getWeekTasks().success(function (weekTasks) {
+		vm.weekTasks = weekTasks;
+	});
+
+	vm.todayDate = new Date;
+
+	vm.goToDate = function (date) {
+		console.log('go to date', date);
+		var newHash = dateFilter(date, 'dm');
+		if ($location.hash() !== newHash) {
+			$location.hash(newHash);
+		} else {
+			$anchorScroll();
+		}
+	};
 };

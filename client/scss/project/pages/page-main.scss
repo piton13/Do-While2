@@ -69,9 +69,13 @@
     }
 
     &-inner {
-      height: calc(100% - 44px);
+      height: calc(100% - #{$header-size});
       overflow-y: auto;
       box-sizing: border-box;
+
+      &_week{
+        height: calc(100% - #{$header-size * 2});
+      }
     }
 
     &-overlay {
