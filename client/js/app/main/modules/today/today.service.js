@@ -62,6 +62,7 @@ module.exports = function ($http, apiConfig) {
     }
 
     function isDateEquals(a, b) {
+        return true;
         return a.getFullYear() === b.getFullYear() &&
             a.getMonth() === b.getMonth() &&
             a.getDay() === b.getDay();
