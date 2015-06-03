@@ -27,7 +27,8 @@
     left: 0;
     bottom: 0;
     overflow-y: auto;
-    @include media-tablet{
+
+    @include media-tablet {
       psoition: relative;
     }
 
@@ -37,9 +38,9 @@
       @include media-tablet {
         display: block;
       }
-
       + .page-main__content {
         left: 0;
+
         .page-main__content-overlay {
           display: none;
         }
@@ -63,7 +64,14 @@
       right: 0;
       margin-left: $menu-width + 1px;
       position: absolute;
+
       width: calc(100% - #{($menu-width + 1px)});
+    }
+
+    &-inner {
+      height: calc(100% - 44px);
+      overflow-y: auto;
+      box-sizing: border-box;
     }
 
     &-overlay {
@@ -74,6 +82,7 @@
       height: 100%;
       background-color: $hover-color;
       z-index: 10;
+
       @include media-tablet() {
         display: none;
       }
