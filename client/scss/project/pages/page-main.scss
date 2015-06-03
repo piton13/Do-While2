@@ -27,6 +27,9 @@
     left: 0;
     bottom: 0;
     overflow-y: auto;
+    @include media-tablet{
+      psoition: relative;
+    }
 
     &_closed {
       display: none;
@@ -55,8 +58,12 @@
     overflow-x: hidden;
     overflow-y: hidden;
     z-index: 8;
+
     @include media-tablet {
       right: 0;
+      margin-left: $menu-width + 1px;
+      position: absolute;
+      width: calc(100% - #{($menu-width + 1px)});
     }
 
     &-overlay {
