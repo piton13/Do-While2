@@ -1,10 +1,9 @@
 .menu {
-  display: inline-block;
-  position: absolute;
-  top: 0;
-  left: 0;
+  display: block;
   width: $menu-width;
+  min-width: $menu-width;
   border-right: 1px solid $gray-scale-4;
+  height: 100%;
 
   &__settings {
     padding-left: $menu-text-left-padding;
@@ -33,17 +32,5 @@
 
   &__create-project {
     text-align: center;
-  }
-
-  &_closed {
-    display: none;
-
-    @include media-tablet {
-      display: block;
-    }
-
-    + .page-main__content .page-main__content-overlay {
-      display: none;
-    }
   }
 }

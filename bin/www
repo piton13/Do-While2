@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
-var app = require('../app.bootstrap'),
-    config = require('../config.json'),
+var app = require('../server/app.bootstrap.js'),
+    config = require('../server/config.json'),
     debug = require('debug')('server:server'),
     http = require('http');
 

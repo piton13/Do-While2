@@ -1,7 +1,7 @@
 /**
  * @ngInject
  */
-module.exports = function ($http, apiConfig) {
+module.exports = function ($http, apiConfig, calendarService) {
 
     this.getAllTasks = function (config) {
         return $http.get(apiConfig.basePath + '/tasks.json', config);
@@ -18,25 +18,12 @@ module.exports = function ($http, apiConfig) {
     };
 
     this.getWeekTasks = function () {
-        var weekTasks = [],
-            dates = [],
-            oneDay = 1000*60*60*24,
-            todayDate = new Date();
+        var todayDate = new Date();
 
         return this.getAllTasks({
             transformResponse: appendTransform($http.defaults.transformResponse, function (tasks) {
-
                 tasks = mapDate(tasks);
-
-                for (var i=0; i<7; i++) {
-                  dates[i] = new Date(todayDate.valueOf()+i*oneDay);
-                  weekTasks.push({
-                    date: dates[i],
-                    number: i,
-                    tasks: filterByDate(tasks, dates[i])
-                  });
-                }
-                return weekTasks;
+                return groupTasksByDay(tasks);
             })
         });
     };
@@ -44,6 +31,17 @@ module.exports = function ($http, apiConfig) {
     function appendTransform(defaults, transform) {
         defaults = angular.isArray(defaults) ? defaults : [defaults];
         return defaults.concat(transform);
+    }
+
+    function groupTasksByDay(tasks) {
+        return calendarService.getNextDaysForWeek()
+            .reduce(function (dayTasks, date) {
+                dayTasks.push({
+                    date: date,
+                    tasks: filterByDate(tasks, date)
+                });
+                return dayTasks;
+            }, []);
     }
 
     function mapDate(tasks) {
@@ -55,15 +53,9 @@ module.exports = function ($http, apiConfig) {
 
     function filterByDate(tasks, date) {
         return tasks.reduce(function (todayTasks, task) {
-            if (isDateEquals(task.date, date))
+            if (calendarService.isDateEquals(task.date, date))
                 todayTasks.push(task);
             return todayTasks;
         }, []);
-    }
-
-    function isDateEquals(a, b) {
-        return a.getFullYear() === b.getFullYear() &&
-            a.getMonth() === b.getMonth() &&
-            a.getDay() === b.getDay();
     }
 };

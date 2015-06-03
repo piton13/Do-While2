@@ -2,13 +2,17 @@
     {{week.todayDate | date: "d MMM yyyy"}}
 </dw-header>
 
-<dw-week-nav>
-  <dw-week-day ng-repeat="day in week.weekDays" week="day" showed="week.showedDays">
-  </dw-week-day>
-</dw-week-nav>
+<dw-week-calendar on-day-selected="week.goToDate">
+</dw-week-calendar>
 
-<dw-task-list ng-repeat="day in week.weekDays | myFilter: week.showedDays">
-    <li class="list__title"> {{day.date | date: "d EEE"}} </li>
-    <dw-today-task-item ng-repeat="task in day.tasks" task="task">
-    </dw-today-task-item>
-</dw-task-list>
+<div class="page-main__content-inner page-main__content-inner_week">
+	<dw-task-list ng-repeat="dayTasks in week.weekTasks">
+	    
+	    <li id="{{dayTasks.date | date:'dm'}}" class="list__title"> 
+	    	{{dayTasks.date | weekDayFilter}} 
+	    </li>
+
+	    <dw-today-task-item ng-repeat="task in dayTasks.tasks" task="task">
+	    </dw-today-task-item>
+	</dw-task-list>
+</div>

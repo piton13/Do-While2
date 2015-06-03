@@ -1,0 +1,7 @@
+<li class="week-day" 
+	ng-class="{ 'week-day_checked' : day.isSelected() }"
+    ng-click="day.toggleSelection()">
+    
+    <span class="week-day__number">{{day.date | date: "d"}}</span>
+    <span class="week-day__text">{{day.date | weekDayFilter}}</span>
+</li>
